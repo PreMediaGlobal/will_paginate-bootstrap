@@ -29,7 +29,7 @@ describe "Bootstrap Renderer" do
 
   let(:output) do
     will_paginate(
-      collection.paginate(:page => page, :per_page => 1),
+      collection.paginate(page: page, per_page: 1),
       renderer: MockRenderer, link_options: link_options,
       class: class_opt
     )
@@ -51,10 +51,6 @@ describe "Bootstrap Renderer" do
 
   it "has a gap item with class disabled" do
     html.at_css('ul li.disabled').wont_be_nil
-  end
-
-  it "has one item with rel start value" do
-    html.css('[rel~=start]').size.must_equal 1
   end
 
   it "has two items with rel prev value" do
